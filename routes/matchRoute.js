@@ -8,7 +8,7 @@ const MatchDetail = Model.MatchDetail
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/player/:playerId', (req, res) => {
     Match.findAll({
         include: [Club, MatchDetail]
     })
