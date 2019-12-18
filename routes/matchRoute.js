@@ -15,4 +15,17 @@ router.get('/', (req, res) => {
     .then(rows => {
         res.render('matchesList.ejs', {matches: rows})
     })
+    .catch(err => {
+        res.send(err)
+    })
+})
+
+router.get('/assignmatch', (req, res) => {
+    res.render('formMatch.ejs')
+})
+
+router.post('/assignmatch', (req, res) => {
+    Match.create({
+        
+    })
 })

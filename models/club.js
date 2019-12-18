@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   Club.init({
     name: DataTypes.STRING,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isOpen: 1
   }, { sequelize })
 
   Club.associate = function (models) {

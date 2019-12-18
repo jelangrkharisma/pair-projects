@@ -41,6 +41,7 @@ router.post('/register', (req, res) => {
         position: req.body.position,
         password: req.body.password,
         ClubId: null,
+        username: req.body.username
     })
     .then(row => {
         console.log(row)
