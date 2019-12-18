@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     ClubId: DataTypes.INTEGER,
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    username: DataTypes.STRING
   }, { 
     sequelize 
   })

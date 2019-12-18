@@ -16,13 +16,13 @@ desc     : list all the clubs,
 access   : GET
 
 route    : /clubs/:id
-desc     : detil club, pilihan join club disediakan disini
+desc     : detil club, pilihan join club, challenge disediakan disini
 access   : GET
 
 route    : /clubs/open
 desc     : list all open clubs
 access   : GET
 
-route    : /match
-desc     : 
+route    : /matches
+desc     : history match club player itu
 access   : GET
