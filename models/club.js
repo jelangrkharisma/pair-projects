@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   Club.associate = function (models) {
     // associations can be defined here
     Club.hasMany(models.Player)
-    Club.belongsToMany(models.Club, { as:'challenger', through: models.Match, foreignKey: 'ChallengerId', otherKey: 'ReceiverId' })
+    Club.belongsToMany(models.Club, { as:'opponent', through: models.Match, foreignKey: 'ChallengerId', otherKey: 'ReceiverId' })
     Club.belongsToMany(models.Club, { as:'challenger', through: models.Challenge, foreignKey: 'ChallengerId', otherKey: 'ReceiverId' })
   };
   return Club;

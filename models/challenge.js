@@ -1,5 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+
+  const Model = sequelize.Sequelize.Model
+  class Challenge extends Model {}
   Challenge.init({
     accepted: DataTypes.INTEGER,
     createdAt: new Date(),

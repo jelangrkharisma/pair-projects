@@ -1,8 +1,11 @@
+const express = require('express')
+const router = express.Router()
 const Model = require('../models')
 
 const Club = Model.Club
 
 const Player = Model.Player
+
 
 router.get('/', (req, res) => {
     Club.findAll({
