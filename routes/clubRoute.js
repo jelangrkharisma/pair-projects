@@ -6,10 +6,10 @@ const Player = Model.Player
 
 router.get('/', (req, res) => {
     Club.findAll({
-        include: [Club]
+        include: [Player]
     })
     .then(rows => {
-        res.render('playerList.ejs', {players: rows})
+        res.render('clubList.ejs', {clubs: rows})
     })
     .catch(err => {
         res.send(err)
@@ -17,30 +17,26 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    Player.findByPk(req.params.id, {
-        include: [Club]
+    Club.findByPk(req.params.id, {
+        include: [Player]
     })
     .then(row => {
-        res.render('playerProfile.ejs', {player: row.get()})
+        res.render('clubProfile.ejs', {club: row.get()})
     })
     .catch(err => {
         res.send(err)
     })
 })
 
-router.get('/register', (req, res) => {
-    res.render('registerPlayer.ejs')
+router.get('/create', (req, res) => {
+    res.render('createClub.ejs')
 })
 
-router.post('/register', (req, res) => {
-    Player.create({
+router.post('/create', (req, res) => {
+    Club.create({
         name: req.body.name,
-        position: req.body.position,
-        password: req.body.password,
-        ClubId: null,
     })
     .then(row => {
-        console.log(row)
         res.redirect(`/${row.id}`)
     })
     .catch(err => {
