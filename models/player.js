@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     ClubId: DataTypes.INTEGER,
     createdAt: new Date(),
     updatedAt: new Date()
-  }, { sequelize })
+  }, { 
+    sequelize 
+  })
 
   Player.associate = function (models) {
     // associations can be defined here
