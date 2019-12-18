@@ -24,8 +24,8 @@ module.exports = {
       return queryInterface.dropTable('users');
     */
     return Promise.all([
-      queryInterface.removeColumn('ChallengerId'),
-      queryInterface.removeColumn('ReceiverId')
+      queryInterface.removeColumn('Challenges','ChallengerId'),
+      queryInterface.removeColumn('Challenges', 'ReceiverId')
     ])
   }
 };

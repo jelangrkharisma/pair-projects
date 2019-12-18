@@ -26,6 +26,7 @@ router.get('/create', (req, res) => {
 router.post('/create', (req, res) => {
     Club.create({
         name: req.body.name,
+        isOpen: 1
     })
     .then(row => {
         res.redirect(`/${row.id}`)

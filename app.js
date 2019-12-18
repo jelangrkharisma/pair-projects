@@ -3,7 +3,8 @@ const app = express()
 
 const players = require('./routes/playerRoute')
 const clubs = require('./routes/clubRoute')
-
+const challenges = require('./routes/challengeRoute')
+const matches = require('./routes/matchRoute')
 
 app.set('view engine', 'ejs')
 
@@ -19,9 +20,13 @@ app.use('/players', players)
 
 
 // CLUBS ROUTE
-app.use('/clubs', players)
+app.use('/clubs', clubs)
 
+// CHALLENGES ROUTE
+app.use('/challenges', challenges)
 
+// MATCHES ROUTE
+app.use('/matches', matches)
 
 app.listen(3000, function () {
     console.log('App running on port 3000')
