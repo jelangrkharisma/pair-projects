@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-    res.render('home.ejs')
+    res.render('home.ejs', {wrong: false})
 })
 
 // PLAYERS ROUTE
