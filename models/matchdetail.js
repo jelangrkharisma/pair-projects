@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
   MatchDetail.init({
     MatchId: DataTypes.INTEGER,
     PlayerId: DataTypes.INTEGER,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    createdAt: new Date(),
+    updatedAt: new Date()
   }, { sequelize })
 
 

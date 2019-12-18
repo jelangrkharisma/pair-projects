@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     ChallengerId: DataTypes.INTEGER,
     ReceiverId: DataTypes.INTEGER,
     date: DataTypes.DATE,
-    venue: DataTypes.STRING
+    venue: DataTypes.STRING,
+    createdAt: new Date(),
+    updatedAt: new Date()
   }, { sequelize })
 
   Match.associate = function (models) {

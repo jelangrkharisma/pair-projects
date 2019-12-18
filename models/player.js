@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     position: DataTypes.STRING,
     password: DataTypes.STRING,
-    ClubId: DataTypes.INTEGER
+    ClubId: DataTypes.INTEGER,
+    createdAt: new Date(),
+    updatedAt: new Date()
   }, { sequelize })
 
   Player.associate = function (models) {
