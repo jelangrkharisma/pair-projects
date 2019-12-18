@@ -58,7 +58,7 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/player/:id', (req, res) => {
     Player.findByPk(req.params.id, {
         include: [Club]
     })

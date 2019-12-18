@@ -19,18 +19,6 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
-    Club.findByPk(req.params.id, {
-        include: [Player]
-    })
-    .then(row => {
-        res.render('clubProfile.ejs', {club: row.get()})
-    })
-    .catch(err => {
-        res.send(err)
-    })
-})
-
 router.get('/create', (req, res) => {
     res.render('createClub.ejs')
 })
@@ -41,6 +29,18 @@ router.post('/create', (req, res) => {
     })
     .then(row => {
         res.redirect(`/${row.id}`)
+    })
+    .catch(err => {
+        res.send(err)
+    })
+})
+
+router.get('/club/:id', (req, res) => {
+    Club.findByPk(req.params.id, {
+        include: [Player]
+    })
+    .then(row => {
+        res.render('clubProfile.ejs', {club: row.get()})
     })
     .catch(err => {
         res.send(err)

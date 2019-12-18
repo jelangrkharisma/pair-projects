@@ -4,7 +4,7 @@ const router = express.Router()
 const Model = sequelize.Sequelize.Model
 const Challenge = Model.Challenge
 
-router.get('/:receiverId', (req, res) => {
+router.get('/challenge/:receiverId', (req, res) => {
     Challenge.findAll({
         where: {
             ReceiverId: req.params.receiverId
@@ -19,7 +19,7 @@ router.get('/:receiverId', (req, res) => {
     })
 })
 
-router.post('/:receiverId/:challengerId', (req, res) => {
+router.post('/challenge/:receiverId/:challengerId', (req, res) => {
     Challenge.update({
         accepted: 1
     }, {

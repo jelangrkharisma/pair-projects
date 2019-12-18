@@ -26,6 +26,12 @@ router.get('/assignmatch', (req, res) => {
 
 router.post('/assignmatch', (req, res) => {
     Match.create({
-        
+        ChallengerId: req.body.ChallengerId,
+        ReceiverId: req.body.ReceiverId,
+        date: req.body.date,
+        venue: req.body.venue
+    })
+    .then(row => {
+        res.render('currentMatch.ejs', {data:row})
     })
 })
