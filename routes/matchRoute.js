@@ -12,12 +12,12 @@ router.get('/player/:playerId', (req, res) => {
     Match.findAll({
         include: [Club, MatchDetail]
     })
-    .then(rows => {
-        res.render('matchesList.ejs', {matches: rows})
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then(rows => {
+            res.render('matchesList.ejs', { matches: rows })
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 router.get('/assignmatch', (req, res) => {
@@ -31,12 +31,12 @@ router.post('/assignmatch', (req, res) => {
         date: req.body.date,
         venue: req.body.venue
     })
-    .then(row => {
-        res.render('currentMatch.ejs', {data:row})
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then(row => {
+            res.render('currentMatch.ejs', { data: row })
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 router.get('/results/:id', (req, res) => {

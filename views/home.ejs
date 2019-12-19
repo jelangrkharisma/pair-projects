@@ -45,7 +45,7 @@
 				<div class="card">
 					<div class="card-body">
 						<h3>Log In</h3><br>
-						<form action="">
+						<form action="/player/login" method="POST">
 							<div class="form-group">
 								<label for="username">Username</label>
 								<input class="form-control" id="username" type="text" placeholder="enter your username"
@@ -55,9 +55,9 @@
 								<label for="password">Password</label>
 								<input class="form-control" id="password" type="password" placeholder="enter your password">
 							</div>
-							<button type="submit" class="btn btn-lg btn-primary btn-block">Log In</button>
+							<button type="submit" class="btn btn-lg btn-success btn-block">Log In</button>
 							<hr class="my-4">
-							<p>doesn't have account? register <a href="/players/register">here</a></p>
+							<p>doesn't have account? register <a class="text-success" href="/players/register">here</a></p>
 					</div>
 					</form>
 				</div>

@@ -24,7 +24,7 @@ route    : /clubs/club/:id
 desc     : detil club, pilihan join club, challenge disediakan disini
 access   : GET
 
-BABANG JELANG
+DONE
 route    : /clubs/open
 desc     : list all open clubs
 access   : GET

@@ -37,13 +37,13 @@ router.post('/register', (req, res) => {
         ClubId: null,
         username: req.body.username
     })
-    .then(row => {
-        console.log(row)
-        res.redirect(`player/${row.id}`)
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then(row => {
+            console.log(row)
+            res.redirect(`player/${row.id}`)
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 router.post('/login', (req, res) => {
@@ -52,23 +52,25 @@ router.post('/login', (req, res) => {
             username: req.body.username
         }
     })
-    .then(row => {
-        if (req.body.password === row.password) {
-            res.redirect(`player/${row.id}`)
-        } else {
-            res.render('home.ejs', {wrong: true})
-        }
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then(row => {
+            if (req.body.password === row.password) {
+                res.redirect(`player/${row.id}`)
+            } else {
+                res.render('home.ejs', { wrong: true })
+            }
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 router.get('/player/:id', (req, res) => {
+
     Player.findByPk(req.params.id, {
         include: [Club]
     })
         .then(row => {
+            console.log(row);
             res.render('playerProfile.ejs', { player: row.get() })
         })
         .catch(err => {
