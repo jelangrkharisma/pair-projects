@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   Player.associate = function (models) {
     // associations can be defined here
     Player.belongsTo(models.Club)
+    Player.hasMany(models.MatchDetail)
   };
   return Player;
 };

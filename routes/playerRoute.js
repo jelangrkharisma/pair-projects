@@ -3,28 +3,25 @@ const router = express.Router()
 
 const Model = require('../models')
 
-const Player = Model.Player
-const Club = Model.Club
-const MatchDetail = Model.MatchDetail
+const Player = Model.Player;
+const Club = Model.Club;
+const MatchDetail = Model.MatchDetail;
+
+const findGoals = require('../helpers/findGoals')
+const findFouls = require('../helpers/findFouls')
 
 router.get('/', (req, res) => {
-    const players = null
     Player.findAll({
-        include: [Club]
+        include: [Club, MatchDetail],
+        order: [
+            ['id', 'ASC']
+        ]
     })
-    .then(rows => {
-        players = rows
-        return MatchDetail.findAll()
-    })
-    .then(rows => {
-        const goals = [];
-        const fouls = [];
-        players.forEach(player => {
-            goals.push(p)
-        })
+    .then(players => {
+        res.render('playerList.ejs', {players: players, findGoals: findGoals, findFouls: findFouls})
     })
     .catch(err => {
-        res.send(err)
+        throw err
     })
 })
 
