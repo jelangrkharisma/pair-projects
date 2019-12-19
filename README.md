@@ -43,9 +43,19 @@ desc: create match
 access: 
 
 TODO :
+
 - hash password
 - session
 - middleware validation
-- Challenges interface
+
+
+- Challenges interface use session(ACCEPT & REDIRECT TO CREATE MATCH FORM)
 - login
 - match interface & details
+- create club
+- match add details Form
+
+
+FRONT END :
+
+=

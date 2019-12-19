@@ -11,11 +11,14 @@ const router = express.Router()
 router.get('/match/:id', (req, res) => {
     Match.findByPk(req.params.id, {
         include: [
-            ['Challenger', 'Receiver']
+            'Challenger', 'Receiver', MatchDetail
         ]
     })
-    .then(rows => {
-        res.send(rows)
+    .then(row => {
+        res.render('currentMatch.ejs', {match: row})
+    })
+    .catch(err => {
+        throw err;
     })
 })
 

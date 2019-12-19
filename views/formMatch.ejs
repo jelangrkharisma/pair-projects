@@ -40,17 +40,17 @@
 	</div>
 	<div class="container">
 		<div class='players-form'>
-			<form action="http://localhost:3000/matchdetail/add" method='POST'>
+			<form action="http://localhost:3000/matchdetail/<%= match.id%>/add/" method='POST'>
 				<div class="form-group">
 					<label for="name">Name</label>
-					<input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter name...">
+					<input type="text" name="name" class="form-control" id="name" placeholder="Enter player name...">
 				</div>
 				<div class="form-group">
 					<label for="username">Username</label>
 					<input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter username...">
 				</div>
 				<label>Event</label>
-				<select class="custom-select ">
+				<select class="custom-select" name='status'>
 					<option value="goal">Goal!!!</option>
 					<option value="foul">Foul</option>
 				</select>
