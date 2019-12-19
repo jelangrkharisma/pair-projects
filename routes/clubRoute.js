@@ -31,7 +31,7 @@ router.post('/create', (req, res) => {
         isOpen: 1
     })
         .then(row => {
-            res.redirect(`/${row.id}`)
+            res.redirect(`/clubs/club/${row.id}`)
         })
         .catch(err => {
             res.send(err)
@@ -43,25 +43,25 @@ router.get('/club/:id', (req, res) => {
     Club.findByPk(req.params.id, {
         include: [Player]
     })
-    .then(row => {
-        club = row
-        return Challenge.findAll({
-            where: {
-                [Op.or]: [
-                    { ChallengerId: row.id},
-                    { ReceiverId: row.id}
-                ]
-            },
-            include: ['Challenger', 'Receiver']
+        .then(row => {
+            club = row
+            return Challenge.findAll({
+                where: {
+                    [Op.or]: [
+                        { ChallengerId: row.id },
+                        { ReceiverId: row.id }
+                    ]
+                },
+                include: ['Challenger', 'Receiver']
+            })
         })
-    })
-    .then((rows) => {
-        // res.send(rows)
-        res.render('clubProfile.ejs', { club: club, challenges:rows})
-    })
-    .catch(err => {
-        throw err;
-    })
+        .then((rows) => {
+            // res.send(rows)
+            res.render('clubProfile.ejs', { club: club, challenges: rows })
+        })
+        .catch(err => {
+            throw err;
+        })
 })
 
 router.get('/open', (req, res) => {
