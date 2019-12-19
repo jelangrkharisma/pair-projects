@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
 
   MatchDetail.associate = function (models) {
     // associations can be defined here
-    MatchDetail.belongsTo(models.Match)
+    MatchDetail.belongsTo(models.Match);
+    MatchDetail.belongsTo(models.Player, {foreignKey: 'PlayerId'});
   };
   return MatchDetail;
 };

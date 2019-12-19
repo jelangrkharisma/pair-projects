@@ -31,14 +31,14 @@
                 <tr>
                     <th scope="row"><%= player.id%></th>
                     <td><%=player.name %></td>
-                    <td><%=player.position %></td>
+                    <td><%=player.position.charAt(0).toUpperCase() + player.position.slice(1) %></td>
                     <% if (player.Club === null) {%>
                     <td>None</td>
                     <%} else {%>
                     <td><%=player.Club.name%></td>
                     <% }%>
-                    <td></td>
-                    <td></td>
+                    <td><%= findGoals(player.get().MatchDetails, player.get().id)%></td>
+                    <td><%= findFouls(player.get().MatchDetails, player.get().id)%></td>
                 </tr>
             <%})%>
             </tbody>
