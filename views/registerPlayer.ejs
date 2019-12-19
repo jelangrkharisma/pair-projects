@@ -24,40 +24,41 @@
       color: white;
     }
 
-    .student-form {
-      width: 900px;
+    .players-form {
       margin: 0 auto;
     }
   </style>
 </head>
 
 <body>
-  <%- include('./partials/navbar', {active: 'students'}) %>
+  <%- include('./partials/navbar', {active: 'playerss'}) %>
   <div class='header'>
     <center>
       <h1>Register as New Player</h1>
     </center>
   </div>
-  <div class='student-form'>
-    <form action="http://localhost:3000/students/add" method='POST'>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter name...">
-      </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter username...">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="email" class="form-control" id="email" placeholder="Enter password...">
-      </div>
-      <div class="form-group">
-        <label for="text">Position</label>
-        <input type="password" name="email" class="form-control" id="email" placeholder="Enter Preferred Position...">
-      </div>
-      <button type="submit" class="btn btn-secondary">Register</button>
-    </form>
+  <div class="container">
+    <div class='players-form'>
+      <form action="http://localhost:3000/playerss/add" method='POST'>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter name...">
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter username...">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="email" class="form-control" id="email" placeholder="Enter password...">
+        </div>
+        <div class="form-group">
+          <label for="text">Position</label>
+          <input type="password" name="email" class="form-control" id="email" placeholder="Enter Preferred Position...">
+        </div>
+        <button type="submit" class="btn btn-secondary">Register</button>
+      </form>
+    </div>
   </div>
   <footer class="page-footer font-small blue pt-4">
 

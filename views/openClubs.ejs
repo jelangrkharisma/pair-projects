@@ -16,26 +16,28 @@
 <body>
 	<div class="container bg-light">
 		<br>
-
 		<div class="card">
 			<div class="card-body">
-				<b>Player Name:</b>
-				<h3><%= player.name %></h3>
-				<br>
-				<b>Position:</b>
-				<h3><%= player.position %></h3>
-				<br>
-				<b>Club Name:</b>
-				<h3><%= player.Club.dataValues.name %></h3>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Club Id</th>
+							<th>Name</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+					<% clubs.forEach(club => {%>
+					<tr>
+						<td> <%= club.id %> </td>
+						<td> <%= club.name %> </td>
+						<td> <a href="/clubs/club/<%=club.id%>">view</a> </td>
+					</tr>
+					<%})%>
+
+				</table>
 			</div>
 		</div>
 
-		<br>
-		<div class="card">
-			<div class="card-body">
-
-			</div>
-		</div>
 	</div>
 
 </body>
