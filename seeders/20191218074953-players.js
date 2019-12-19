@@ -26,17 +26,17 @@ module.exports = {
       }, {
         name: "Cahyo Cahyono",
         position: "Winger",
-        ClubId: null,
+        ClubId: 1,
         password: 123456
       }, {
         name: "Deni Deniati",
         position: "Defender",
-        ClubId: null,
+        ClubId: 1,
         password: 123456
       }, {
         name: "Elok Elianto",
         position: "Goal Keeper",
-        ClubId: null,
+        ClubId: 2,
         password: 123456
       },
     ]

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Model = sequelize.Sequelize.Model
+const Model = require('../models')
 const Challenge = Model.Challenge
 
 router.get('/challenge/:receiverId', (req, res) => {
@@ -11,12 +11,12 @@ router.get('/challenge/:receiverId', (req, res) => {
         },
         include: [Club]
     })
-    .then(rows => {
-        res.render('challengesList.ejs', {challenges: rows})
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then(rows => {
+            res.render('challengesList.ejs', { challenges: rows })
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 router.post('/challenge/:receiverId/:challengerId', (req, res) => {
@@ -28,10 +28,12 @@ router.post('/challenge/:receiverId/:challengerId', (req, res) => {
             ReceiverId: req.params.receiverId
         }
     })
-    .then(() => {
-        res.redirect('/match/assignmatch');
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then(() => {
+            res.redirect('/match/assignmatch');
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
+
+module.exports = router
