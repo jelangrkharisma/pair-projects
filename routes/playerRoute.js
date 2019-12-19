@@ -42,7 +42,6 @@ router.post('/register', (req, res) => {
         username: req.body.username
     })
         .then(row => {
-            console.log(row)
             res.redirect(`player/${row.id}`)
         })
         .catch(err => {

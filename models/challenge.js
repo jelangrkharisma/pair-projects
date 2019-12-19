@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   Challenge.associate = function(models) {
     // associations can be defined here
+    Challenge.belongsTo(models.Club, {foreignKey: 'ChallengerId', as: 'Challenger'})
+    Challenge.belongsTo(models.Club, {foreignKey: 'ReceiverId', as: 'Receiver'})
   };
   return Challenge;
 };
