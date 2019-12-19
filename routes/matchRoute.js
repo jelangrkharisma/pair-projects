@@ -8,7 +8,7 @@ const MatchDetail = Model.MatchDetail
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/player/:playerId', (req, res) => {
     Match.findAll({
         include: [Club, MatchDetail]
     })
@@ -34,6 +34,14 @@ router.post('/assignmatch', (req, res) => {
         .then(row => {
             res.render('currentMatch.ejs', { data: row })
         })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
+router.get('/results/:id', (req, res) => {
+    Match.findByPk(req.params.id, {
+        include: [Club]
+    })
+})
 module.exports = router
