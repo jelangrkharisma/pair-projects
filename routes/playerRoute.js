@@ -70,20 +70,25 @@ router.post('/login', (req, res) => {
 
 router.get('/player/:id', (req, res) => {
     let player = null;
+    let matchHistory = null
     Player.findByPk(req.params.id, {
         include: [Club]
     })
         .then(row => {
             player = row
-            return Match.findAll({
-                where: {
-                    [Op.or]: [
-                        { ChallengerId: row.Club.id },
-                        { ReceiverId: row.Club.id }
-                    ]
-                },
-                include: ['Challenger', 'Receiver']
-            })
+            if (row.Club == null) {
+                res.render('playerProfile.ejs', { player: player, matches: null })
+            } else {
+                return Match.findAll({
+                    where: {
+                        [Op.or]: [
+                            { ChallengerId: row.Club.id },
+                            { ReceiverId: row.Club.id }
+                        ]
+                    },
+                    include: ['Challenger', 'Receiver']
+                })
+            }
         })
         .then((match) => {
             res.render('playerProfile.ejs', { player: player, matches: match })

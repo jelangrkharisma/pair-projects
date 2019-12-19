@@ -26,7 +26,7 @@
 				<h3><%= player.position %></h3>
 				<br>
 				<b>Club Name:</b>
-				<h3><%= player.Club.dataValues.name %></h3>
+				<h3><%= player.Club == null ? 'Free Agent' : player.Club.name  %></h3>
 			</div>
 		</div>
 
@@ -43,6 +43,7 @@
 							<th>Date</th>
 						</tr>
 					</thead>
+					<% if(matches != null) { %>
 					<% matches.forEach(match => {%>
 					<tr>
 						<td> <%= match.id %> </td>
@@ -50,7 +51,7 @@
 						<td> <%= match.Receiver.name %> </td>
 						<td> <%= match.date %> </td>
 					</tr>
-					<%})%>
+					<%})}%>
 				</table>
 			</div>
 		</div>

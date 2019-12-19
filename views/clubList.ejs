@@ -17,6 +17,9 @@
 	<div class="container bg-light">
 		<br>
 		<div class="card">
+			<div class="card-header">
+				<h3>All Clubs Listing</h3>
+			</div>
 			<div class="card-body">
 				<table class="table">
 					<thead class="thead-dark">
@@ -28,6 +31,9 @@
 					</thead>
 					<% clubs.forEach(club => {%>
 					<tr>
+						<td><%=club.id %></td>
+						<td><%=club.name %></td>
+						<td> <a href="/clubs/club/<%=club.id%>">view</a> </td>
 
 					</tr>
 					<%})%>
