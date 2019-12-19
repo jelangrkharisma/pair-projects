@@ -21,12 +21,12 @@ router.get('/', (req, res) => {
             ['id', 'ASC']
         ]
     })
-    .then(players => {
-        res.render('playerList.ejs', {players: players, findGoals: findGoals, findFouls: findFouls})
-    })
-    .catch(err => {
-        throw err
-    })
+        .then(players => {
+            res.render('playerList.ejs', { players: players, findGoals: findGoals, findFouls: findFouls })
+        })
+        .catch(err => {
+            throw err
+        })
 })
 
 router.get('/register', (req, res) => {
@@ -73,23 +73,24 @@ router.get('/player/:id', (req, res) => {
     Player.findByPk(req.params.id, {
         include: [Club]
     })
-    .then(row => {
-        return Match.findAll({
-            where: {
-                [Op.or]: [
-                    { ChallengerId: row.Club.id},
-                    { ReceiverId: row.Club.id}
-                ]
-            },
-            include: ['Challenger', 'Receiver']
+        .then(row => {
+            player = row
+            return Match.findAll({
+                where: {
+                    [Op.or]: [
+                        { ChallengerId: row.Club.id },
+                        { ReceiverId: row.Club.id }
+                    ]
+                },
+                include: ['Challenger', 'Receiver']
+            })
         })
-    })
-    .then((rows) => {
-        res.render('playerProfile.ejs', {player: player, matches: rows})
-    })
-    .catch(err => {
-        res.send(err)
-    })
+        .then((match) => {
+            res.render('playerProfile.ejs', { player: player, matches: match })
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 module.exports = router

@@ -20,7 +20,7 @@
 		<div class="card">
 			<div class="card-body">
 				<b>Player Name:</b>
-				<h3><%= player.name %></h3>
+				<h3><%= player.dataValues.name %></h3>
 				<br>
 				<b>Position:</b>
 				<h3><%= player.position %></h3>
@@ -32,8 +32,26 @@
 
 		<br>
 		<div class="card">
+			<div class="card-header">Last Match:</div>
 			<div class="card-body">
-
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>MatchId</th>
+							<th>Challenger</th>
+							<th>Reciever</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<% matches.forEach(match => {%>
+					<tr>
+						<td> <%= match.id %> </td>
+						<td> <%= match.Challenger.name %> </td>
+						<td> <%= match.Receiver.name %> </td>
+						<td> <%= match.date %> </td>
+					</tr>
+					<%})%>
+				</table>
 			</div>
 		</div>
 	</div>
