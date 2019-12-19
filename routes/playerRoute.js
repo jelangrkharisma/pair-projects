@@ -5,14 +5,23 @@ const Model = require('../models')
 
 const Player = Model.Player
 const Club = Model.Club
-
+const MatchDetail = Model.MatchDetail
 
 router.get('/', (req, res) => {
+    const players = null
     Player.findAll({
         include: [Club]
     })
     .then(rows => {
-        res.render('playerList.ejs', { players: rows })
+        players = rows
+        return MatchDetail.findAll()
+    })
+    .then(rows => {
+        const goals = [];
+        const fouls = [];
+        players.forEach(player => {
+            goals.push(p)
+        })
     })
     .catch(err => {
         res.send(err)

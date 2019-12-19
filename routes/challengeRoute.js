@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Model = sequelize.Sequelize.Model
+const Model = require('../models')
 const Challenge = Model.Challenge
 
 router.get('/challenge/:receiverId', (req, res) => {
@@ -35,3 +35,5 @@ router.post('/challenge/:receiverId/:challengerId', (req, res) => {
         res.send(err)
     })
 })
+
+module.exports = router

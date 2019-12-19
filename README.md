@@ -33,3 +33,11 @@ BABANG JELANG
 route    : /matches/player/:playerId
 desc     : history match club player itu
 access   : GET
+
+route: /matches/assignmatch
+desc: render form buat bikin match
+access: GET
+
+route: /matches/assignmatch
+desc: create match
+access: POST

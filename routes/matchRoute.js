@@ -34,4 +34,14 @@ router.post('/assignmatch', (req, res) => {
     .then(row => {
         res.render('currentMatch.ejs', {data:row})
     })
+    .catch(err => {
+        res.send(err)
+    })
 })
+
+router.get('/results/:id', (req, res) => {
+    Match.findByPk(req.params.id, {
+        include: [Club]
+    })
+})
+module.exports = router
