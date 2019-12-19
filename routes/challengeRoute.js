@@ -3,13 +3,14 @@ const router = express.Router()
 
 const Model = require('../models')
 const Challenge = Model.Challenge
+const Club = Model.Club
 
 router.get('/challenge/:receiverId', (req, res) => {
     Challenge.findAll({
         where: {
             ReceiverId: req.params.receiverId
         },
-        include: [Club]
+        include: ['Challenger', 'Receiver']
     })
         .then(rows => {
             res.render('challengesList.ejs', { challenges: rows })

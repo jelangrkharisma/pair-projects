@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>FutConnect | Club Profile</title>
+	<title>FutConnect | Player list</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -16,48 +16,31 @@
 <body>
 	<div class="container bg-light">
 		<br>
-
 		<div class="card">
-			<div class="card-body">
-				<b>Club Name:</b>
-				<h3><%= club.name %></h3>
-				<br>
-				<b>Establised:</b>
-				<h3><%= club.createdAt %></h3>
-				<br>
-				<b>Open Team:</b>
-				<h3><%= club.isOpen==1 ? 'Yes' : 'No' %></h3>
-				<br>
-				<a href="" class="btn btn-lg text-white" style="background-color: darkolivegreen;">Challenge this
-					Club</a>
+			<div class="card-header">
+				<h3>Challenge List</h3>
 			</div>
-		</div>
-
-		<br>
-		<div class="card">
 			<div class="card-body">
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th>Player Id</th>
-							<th>Name</th>
-							<th>Position</th>
+							<th>No</th>
+							<th>Challenger</th>
+							<th>Created at</th>
 						</tr>
 					</thead>
-					<% club.Players.forEach(player => {%>
+					<% challenges.forEach((challenges,index) => {%>
 					<tr>
-						<td> <%= player.id %> </td>
-						<td> <%= player.name %> </td>
-						<td> <%= player.position %> </td>
+						<td> <%= index+1 %> </td>
+						<td> <%= challenges.Challenger.name %> </td>
+						<td> <%= challenges.Challenger.createdAt %> </td>
 					</tr>
 					<%})%>
 
 				</table>
 			</div>
 		</div>
-	</div>
 
-	<br>
 	</div>
 
 </body>
