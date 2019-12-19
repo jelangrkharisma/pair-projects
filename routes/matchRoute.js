@@ -8,16 +8,15 @@ const MatchDetail = Model.MatchDetail
 
 const router = express.Router()
 
-router.get('/player/:playerId', (req, res) => {
-    Match.findAll({
-        include: [Club, MatchDetail]
+router.get('/match/:id', (req, res) => {
+    Match.findByPk(req.params.id, {
+        include: [
+            ['Challenger', 'Receiver']
+        ]
     })
-        .then(rows => {
-            res.render('matchesList.ejs', { matches: rows })
-        })
-        .catch(err => {
-            res.send(err)
-        })
+    .then(rows => {
+        res.send(rows)
+    })
 })
 
 router.get('/assignmatch', (req, res) => {
