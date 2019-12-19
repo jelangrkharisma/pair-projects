@@ -40,4 +40,10 @@ access: GET
 
 route: /matches/assignmatch
 desc: create match
-access: POST
+access: 
+
+TODO :
+- hash password
+- session
+- middleware validation
+- Challenges interface

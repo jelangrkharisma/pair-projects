@@ -5,7 +5,11 @@ const Model = require('../models')
 
 const Player = Model.Player;
 const Club = Model.Club;
+const Match = Model.Match;
 const MatchDetail = Model.MatchDetail;
+
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 const findGoals = require('../helpers/findGoals')
 const findFouls = require('../helpers/findFouls')
@@ -65,17 +69,27 @@ router.post('/login', (req, res) => {
 })
 
 router.get('/player/:id', (req, res) => {
-
+    let player = null;
     Player.findByPk(req.params.id, {
         include: [Club]
     })
-        .then(row => {
-            console.log(row);
-            res.render('playerProfile.ejs', { player: row.get() })
+    .then(row => {
+        return Match.findAll({
+            where: {
+                [Op.or]: [
+                    { ChallengerId: row.Club.id},
+                    { ReceiverId: row.Club.id}
+                ]
+            },
+            include: ['Challenger', 'Receiver']
         })
-        .catch(err => {
-            res.send(err)
-        })
+    })
+    .then((rows) => {
+        res.render('playerProfile.ejs', {player: player, matches: rows})
+    })
+    .catch(err => {
+        res.send(err)
+    })
 })
 
 module.exports = router
