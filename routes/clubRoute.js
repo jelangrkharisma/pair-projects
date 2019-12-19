@@ -5,7 +5,9 @@ const Model = require('../models')
 const Club = Model.Club
 
 const Player = Model.Player
-
+const Challenge = Model.Challenge
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 router.get('/', (req, res) => {
     Club.findAll({
@@ -37,17 +39,29 @@ router.post('/create', (req, res) => {
 })
 
 router.get('/club/:id', (req, res) => {
+    let club = null;
     Club.findByPk(req.params.id, {
         include: [Player]
     })
-        .then(row => {
-            console.log(row);
-
-            res.render('clubProfile.ejs', { club: row.get() })
+    .then(row => {
+        club = row
+        return Challenge.findAll({
+            where: {
+                [Op.or]: [
+                    { ChallengerId: row.id},
+                    { ReceiverId: row.id}
+                ]
+            },
+            include: ['Challenger', 'Receiver']
         })
-        .catch(err => {
-            res.send(err)
-        })
+    })
+    .then((rows) => {
+        // res.send(rows)
+        res.render('clubProfile.ejs', { club: club, challenges:rows})
+    })
+    .catch(err => {
+        throw err;
+    })
 })
 
 router.get('/open', (req, res) => {
