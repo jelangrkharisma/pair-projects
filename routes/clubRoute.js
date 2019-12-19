@@ -41,6 +41,8 @@ router.get('/club/:id', (req, res) => {
         include: [Player]
     })
         .then(row => {
+            console.log(row);
+
             res.render('clubProfile.ejs', { club: row.get() })
         })
         .catch(err => {

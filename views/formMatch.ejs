@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>Students Form</title>
+	<style>
+		.header {
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+
+		body {
+			background-color: white;
+		}
+
+		footer {
+			margin-top: 150px;
+			background-color: darkolivegreen;
+			color: white;
+		}
+
+		.players-form {
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<%- include('./partials/navbar', {active: 'playerss'}) %>
+	<div class='header'>
+		<center>
+			<h1>Record Match Events: </h1>
+			<h3>MatchId: #ID</h3>
+		</center>
+	</div>
+	<div class="container">
+		<div class='players-form'>
+			<form action="http://localhost:3000/matchdetail/add" method='POST'>
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter name...">
+				</div>
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter username...">
+				</div>
+				<label>Event</label>
+				<select class="custom-select ">
+					<option value="goal">Goal!!!</option>
+					<option value="foul">Foul</option>
+				</select>
+				<br><br>
+				<button type="submit" class="btn btn-lg text-white" style="background-color: darkolivegreen;">Record</button>
+			</form>
+		</div>
+	</div>
+	<footer class="page-footer font-small blue pt-4">
+
+		<!-- Footer Links -->
+		<div class="container-fluid text-center text-md-left">
+
+			<!-- Grid row -->
+			<div class="row">
+				<div class="col-md-6 mt-md-0 mt-3">
+
+					<!-- Content -->
+					<h5 class="text-uppercase">Disclaimer:</h5>
+					<p>For testing and development purposes only @Hacktiv8</p>
+
+				</div>
+				<!-- Grid column -->
+				<div class="col-md-3 mb-md-0 mb-3">
+				</div>
+
+				<hr class="clearfix w-100 d-md-none pb-3">
+
+				<!-- Grid column -->
+				<div class="col-md-3 mb-md-0 mb-3">
+
+					<!-- Links -->
+					<h5 class="text-uppercase">References</h5>
+
+					<ul class="list-unstyled">
+						<li>
+							<a href="http://expressjs.com/">Express JS</a>
+						</li>
+						<li>
+							<a href="https://sequelize.org/">Sequelize</a>
+						</li>
+						<li>
+							<a href="https://getbootstrap.com/">Bootstrap</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+		</div>
+		<!-- Footer Links -->
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">© 2019 Copyright:
+			<a href="https://mdbootstrap.com/education/bootstrap/"> Gab & Jel</a>
+		</div>
+		<!-- Copyright -->
+
+	</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
