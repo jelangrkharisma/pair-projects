@@ -44,18 +44,16 @@ access:
 
 TODO :
 
-- hash password
-- session
+GAB
 - middleware validation
-
-
+- session
 - Challenges interface use session(ACCEPT & REDIRECT TO CREATE MATCH FORM)
-- login
+
+
+JELANG
+- leave club
 - match interface & details
-- create club
 - match add details Form
 
 
 FRONT END :
-
-=

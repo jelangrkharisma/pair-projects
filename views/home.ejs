@@ -9,8 +9,14 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-
+<% if (wrong === true) {%>
+<body style="background-image:url('../img/jaring.jpg');background-repeat: no-repeat; background-size: cover;">
+	<!-- <div class="alert alert-danger" role="alert">
+		User or Password is incorrect.
+	</div> -->
+<% } else {%>
 <body style="background-image:url('./img/jaring.jpg');background-repeat: no-repeat; background-size: cover;">
+<% } %>
 	<div class="container-fluid">
 		<br>
 		<div class="jumbotron">
@@ -45,24 +51,27 @@
 				<div class="card">
 					<div class="card-body">
 						<h3>Log In</h3><br>
-						<form action="/player/login" method="POST">
-							<div class="form-group">
-								<label for="username">Username</label>
-								<input class="form-control" id="username" type="text" placeholder="enter your username"
-									autocomplete="off">
-							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input class="form-control" id="password" type="password" placeholder="enter your password">
-							</div>
-							<button type="submit" style="background-color: darkolivegreen;"
+						<div class="container">
+							<div class='players-form'>
+							  <form action="/players/login" method='POST'>
+								<div class="form-group">
+								  <label for="username">Username</label>
+								  <input type="text" name="username" class="form-control" id="username" placeholder="Enter username...">
+								</div>
+								<div class="form-group">
+								  <label for="password">Password</label>
+								  <input type="password" name="password" class="form-control" id="password" placeholder="Enter password...">
+								</div>
+								<button type="submit" style="background-color: darkolivegreen;"
 								class="text-white btn btn-lg btn-block">Log
 								In</button>
-							<hr class="my-4">
-							<p>doesn't have account? register <u><a style="color:darkolivegreen" href="/players/register">here</a></u>
-							</p>
+								<hr class="my-4">
+								<p>don't have an account? register <u><a style="color:darkolivegreen" href="/players/register">here</a></u>
+								</p>
+							  </form>
+							</div>
+						</div>
 					</div>
-					</form>
 				</div>
 			</div>
 

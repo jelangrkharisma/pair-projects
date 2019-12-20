@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 // PLAYERS ROUTE
 app.use('/players', players)
 
-
 // CLUBS ROUTE
 app.use('/clubs', clubs)
 
@@ -30,7 +29,7 @@ app.use('/challenges', challenges)
 app.use('/matches', matches)
 
 // MATCHDETAILS ROUTE
-app.use('/matchdetails', matchdetails)
+// app.use('/matchdetails', matchdetails)
 
 app.listen(3000, function () {
     console.log('App running on port 3000')

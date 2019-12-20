@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
         })
 })
 
+
 router.get('/register', (req, res) => {
     res.render('registerPlayer.ejs')
 })
@@ -55,16 +56,21 @@ router.post('/login', (req, res) => {
             username: req.body.username
         }
     })
-        .then(row => {
-            if (req.body.password === row.password) {
+    .then(row => {
+        if (row === null) {
+            res.render('home.ejs', { wrong: true })
+        } else {
+            if (row.validPassword(req.body.password)) {
                 res.redirect(`player/${row.id}`)
+                res.send(req.body)
             } else {
                 res.render('home.ejs', { wrong: true })
             }
-        })
-        .catch(err => {
-            res.send(err)
-        })
+        }
+    })
+    .catch(err => {
+        throw err
+    })
 })
 
 router.get('/player/:id', (req, res) => {
