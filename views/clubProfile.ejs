@@ -55,6 +55,28 @@
 				</table>
 			</div>
 		</div>
+		<hr>
+		<div class="card">
+			<div class="card-body">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Club Id</th>
+							<th>Challenger</th>
+							<th>Receiver</th>
+						</tr>
+					</thead>
+					<% challenges.forEach(challenge => {%>
+					<tr>
+						<td> <%= challenge.Challenger.id %> </td>
+						<td> <%= challenge.Challenger.name %> </td>
+						<td> <%= challenge.Receiver.name %> </td>
+					</tr>
+					<%})%>
+
+				</table>
+			</div>
+		</div>
 	</div>
 
 	<br>
